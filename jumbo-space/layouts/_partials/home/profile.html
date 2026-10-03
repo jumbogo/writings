@@ -1,0 +1,11 @@
+{{/* Override of Congo's home/profile.html: the intro and recent posts share one
+     centered reading column instead of the list hugging the left edge. */}}
+<article class="flex flex-col items-center justify-center text-center">
+  {{ partial "profile.html" }}
+</article>
+<div class="mx-auto max-w-prose">
+  <section class="prose mt-8 dark:prose-invert">{{ .Content | emojify }}</section>
+  <section>
+    {{ partial "recent-articles.html" . }}
+  </section>
+</div>
