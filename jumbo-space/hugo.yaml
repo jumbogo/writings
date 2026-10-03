@@ -1,4 +1,5 @@
-baseurl: https://jumboalex.github.io/
+# CI overrides this with the URL GitHub Pages reports (see .github/workflows/deploy.yml)
+baseurl: https://jumbochow.com/
 languageCode: en-us
 theme: hugo-theme-stack
 title: Jumbo Space
@@ -236,55 +237,3 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
-
-# Build optimization settings
-minify:
-    disableCSS: false
-    disableHTML: false
-    disableJS: false
-    disableJSON: false
-    disableSVG: false
-    disableXML: false
-    minifyOutput: true
-    tdewolff:
-        css:
-            keepCSS2: true
-            precision: 0
-        html:
-            keepComments: false
-            keepConditionalComments: true
-            keepDefaultAttrVals: true
-            keepDocumentTags: true
-            keepEndTags: true
-            keepQuotes: false
-            keepWhitespace: false
-        js:
-            keepVarNames: false
-            precision: 0
-        json:
-            precision: 0
-        svg:
-            precision: 0
-        xml:
-            keepWhitespace: false
-
-# Caching and performance
-caches:
-    assets:
-        dir: ":cacheDir/:project"
-        maxAge: "1h"
-    getcsv:
-        dir: ":cacheDir/:project"
-        maxAge: "1m"
-    getjson:
-        dir: ":cacheDir/:project"
-        maxAge: "1m"
-    getresource:
-        dir: ":cacheDir/:project"
-        maxAge: "1m"
-    images:
-        dir: ":cacheDir/:project"
-        maxAge: "1h"
-    modules:
-        dir: ":cacheDir/modules"
-        maxAge: "10m"

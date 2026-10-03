@@ -1,80 +1,42 @@
-# Automated Deployment Setup
+# Deployment
 
-This repository is configured for automated deployment to GitHub Pages using GitHub Actions.
+The site is built and published to GitHub Pages directly from this repository
+by `.github/workflows/deploy.yml`. No deploy keys or second repository are needed.
 
-## Setup Instructions
+## One-time setup
 
-### 1. Generate SSH Deploy Key
+In this repository: **Settings** → **Pages**:
+- **Build and deployment → Source**: select **GitHub Actions**
+- **Custom domain**: `jumbochow.com`, then tick **Enforce HTTPS** once the certificate is issued
 
-```bash
-ssh-keygen -t rsa -b 4096 -C "github-actions-deploy" -f deploy_key -N ""
-```
+DNS for `jumbochow.com` is at Namecheap: four `A` records on `@` to
+185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153, and a
+`CNAME` from `www` to `jumbogo.github.io`.
 
-This creates two files:
-- `deploy_key` (private key)
-- `deploy_key.pub` (public key)
+## How it works
 
-### 2. Configure Deploy Key in Target Repository
+On every push to `main` (or a manual run from the **Actions** tab) the workflow:
 
-1. Go to your **target repository**: `https://github.com/jumboalex/jumboalex.github.io`
-2. Navigate to: **Settings** → **Deploy keys** → **Add deploy key**
-3. Add the **public key** (`deploy_key.pub` content):
-   - **Title**: `GitHub Actions Deploy Key`
-   - **Key**: Paste the content of `deploy_key.pub`
-   - ✅ **Allow write access** (important!)
-4. Click **Add key**
+1. Checks out the repo with the theme submodule
+2. Builds with a pinned Hugo version (`hugo --minify --gc`)
+3. Publishes `jumbo-space/public` to GitHub Pages
 
-### 3. Add Secret to Source Repository
+The base URL comes from GitHub Pages at build time, so renaming the repository
+or adding a custom domain needs no config change.
 
-1. Go to your **source repository**: `https://github.com/jumboalex/writings`
-2. Navigate to: **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
-4. Add the **private key**:
-   - **Name**: `ACTIONS_DEPLOY_KEY`
-   - **Secret**: Paste the content of `deploy_key` (the private key file)
-5. Click **Add secret**
+## Upgrading Hugo
 
-### 4. Clean Up
-
-After adding the keys to GitHub, delete the local key files for security:
+Bump `hugo-version` in the workflow after checking the site builds locally with
+the new version:
 
 ```bash
-rm deploy_key deploy_key.pub
+cd jumbo-space && hugo --gc
 ```
 
-## How It Works
+## Local preview
 
-The workflow (`.github/workflows/deploy.yml`) will:
+```bash
+cd jumbo-space && hugo server
+```
 
-1. **Trigger** on every push to the `main` branch
-2. **Build** the Hugo site with minification and optimization
-3. **Deploy** the generated files to `jumboalex.github.io` repository
-4. **Update** GitHub Pages automatically
-
-## Manual Trigger
-
-You can also trigger deployment manually:
-1. Go to **Actions** tab in your repository
-2. Select **Deploy Hugo Site to GitHub Pages**
-3. Click **Run workflow**
-
-## Build Optimizations Added
-
-- **Minification**: CSS, HTML, JS, JSON, SVG, XML
-- **Cache configuration**: Faster builds with intelligent caching
-- **Garbage collection**: Cleans up unused files
-- **Production environment**: Optimized for performance
-
-## Monitoring Deployments
-
-- View deployment status in the **Actions** tab
-- Check deployment history in your GitHub Pages repository
-- Site updates should be live within 2-3 minutes after push
-
-## Troubleshooting
-
-**Common issues:**
-- Ensure deploy key has **write access** enabled
-- Verify the secret name is exactly `ACTIONS_DEPLOY_KEY`
-- Check that the target repository name is correct in the workflow
-- Make sure Hugo theme submodule is properly initialized
+Build output (`public/`, `resources/_gen/`) is git-ignored.
