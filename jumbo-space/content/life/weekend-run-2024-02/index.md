@@ -7,6 +7,7 @@ tags = [
 description = "记录跑步情况"
 author = "jumbo chow"
 categories = ["running"]
+aliases = ["/p/周末跑步/"]
 +++
 
 本周末连续两天跑了3场：

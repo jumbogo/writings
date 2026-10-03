@@ -1,0 +1,18 @@
+{{/* Photo rows: images written on consecutive lines in Markdown (same paragraph)
+     render as adjacent <figure> siblings; group each run into one row. */}}
+<script>
+  document.querySelectorAll("article figure").forEach((fig) => {
+    if (fig.parentElement.classList.contains("photo-row")) return;
+    const run = [fig];
+    let next = fig.nextElementSibling;
+    while (next && next.tagName === "FIGURE") {
+      run.push(next);
+      next = next.nextElementSibling;
+    }
+    if (run.length < 2) return;
+    const row = document.createElement("div");
+    row.className = "photo-row";
+    fig.before(row);
+    run.forEach((f) => row.append(f));
+  });
+</script>

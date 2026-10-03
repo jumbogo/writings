@@ -7,6 +7,7 @@ tags = [
 author = "jumbo chow"
 categories = ["travel"]
 description = "记录在温哥华周边的吃吃喝喝"
+aliases = ["/p/吃吃喝喝温哥华/"]
 +++
 
 ### 2024-03-16 开车去温哥华

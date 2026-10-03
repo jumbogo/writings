@@ -1,0 +1,85 @@
+# CI overrides baseURL with the URL GitHub Pages reports (see .github/workflows/deploy.yml)
+baseURL = "https://jumbochow.com/"
+title = "Jumbo Chow"
+theme = "congo"
+locale = "en-us"
+defaultContentLanguage = "en"
+
+# Correct summaries and reading time for Chinese posts
+hasCJKLanguage = true
+enableRobotsTXT = true
+summaryLength = 0
+
+[pagination]
+  pagerSize = 10
+
+# JSON on the home page feeds Congo's built-in search
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menus.main]]
+  name = "Tech"
+  pageRef = "/tech"
+  weight = 10
+[[menus.main]]
+  name = "Life"
+  pageRef = "/life"
+  weight = 20
+[[menus.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 30
+
+[params]
+  mainSections = ["tech", "life"]
+  description = "Jumbo Chow — software engineer. Engineering notes, running and travel."
+  colorScheme = "congo"
+  defaultAppearance = "light"
+  autoSwitchAppearance = true
+  enableSearch = true
+  enableCodeCopy = true
+
+  [params.header]
+    layout = "basic"
+
+  [params.homepage]
+    layout = "profile"
+    showRecent = true
+
+  [params.article]
+    showDate = true
+    showReadingTime = true
+    showTableOfContents = true
+    showTaxonomies = false
+    showAuthor = false
+
+  [params.list]
+    showBreadcrumbs = false
+    groupByYear = true
+
+  [params.author]
+    name = "Jumbo Chow"
+    image = "img/avatar.png"
+    headline = "Software engineer · entrepreneur · runner"
+    links = [
+      { github = "https://github.com/jumbogo" },
+      { linkedin = "https://www.linkedin.com/in/zhengbo-zhou-40a49b4" },
+    ]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
