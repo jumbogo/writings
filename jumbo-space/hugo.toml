@@ -1,6 +1,6 @@
 # CI overrides baseURL with the URL GitHub Pages reports (see .github/workflows/deploy.yml)
 baseURL = "https://jumbochow.com/"
-title = "Jumbo Chow"
+title = "Zhengbo Zhou (Jumbo Chow)"
 theme = "congo"
 locale = "en-us"
 defaultContentLanguage = "en"
@@ -36,7 +36,7 @@ summaryLength = 0
 
 [params]
   mainSections = ["tech", "life"]
-  description = "Jumbo Chow — software engineer. Engineering notes, running and travel."
+  description = "Zhengbo Zhou (Jumbo Chow) — software engineer and entrepreneur. Engineering notes, running and travel."
   colorScheme = "congo"
   defaultAppearance = "light"
   autoSwitchAppearance = true
@@ -44,7 +44,7 @@ summaryLength = 0
   enableCodeCopy = true
 
   [params.header]
-    layout = "basic"
+    layout = "hybrid"
 
   [params.homepage]
     layout = "profile"
@@ -62,7 +62,8 @@ summaryLength = 0
     groupByYear = true
 
   [params.author]
-    name = "Jumbo Chow"
+    # Non-breaking spaces keep "Zhengbo Zhou" and "(Jumbo Chow)" together when the name wraps
+    name = "Zhengbo\u00A0Zhou (Jumbo\u00A0Chow)"
     image = "img/avatar.png"
     headline = "Software engineer · entrepreneur · runner"
     links = [
