@@ -1,6 +1,6 @@
 ---
 title: Work
-description: "Experience, patents, publications and honors of Zhengbo Zhou (Jumbo Chow)."
+description: "Experience, projects, patents, publications and honors of Zhengbo Zhou (Jumbo Chow)."
 showDate: false
 showReadingTime: false
 showTableOfContents: false
@@ -42,6 +42,20 @@ Twelve years across engineering productivity and Google Cloud: built a
 company-wide engineering productivity metrics platform, a pricing simulation
 system for Cloud Billing, and the performance and integration test framework
 behind the launches of Persistent Disk, Cloud SQL and Compute Engine.
+
+## Projects
+
+**[InsightLens](https://insightlens.dev/)**
+
+An iOS and Android app from ZZ Labs, my company, that scans food labels and
+flags the ingredients you want to avoid. It runs entirely on-device, with no
+account needed.
+
+**Lucation** · 2015 – 2016
+
+A short-code service for map addresses and coordinates. Defined the product and
+architecture, built the backend service and web app, and worked with mobile
+developers to ship the Android and iOS apps.
 
 ## Patents
 
