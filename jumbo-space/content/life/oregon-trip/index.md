@@ -6,8 +6,9 @@ tags = [
 ]
 description = "感恩节周末来俄勒冈4天旅行，第一次记录旅游行程。"
 author = "jumbo chow"
-image = "oregon_cover.png"
 categories = ["travel"]
+aliases = ["/p/感恩节俄勒冈游记/"]
+feature = "oregon_cover.png"
 +++
 
 ## 星期四11月23日 进入俄勒冈

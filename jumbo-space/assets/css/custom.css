@@ -1,0 +1,24 @@
+/* Photo rows built by layouts/_partials/extend-footer.html */
+.photo-row {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.photo-row figure {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+}
+.photo-row img {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+}
+@media (max-width: 640px) {
+  .photo-row {
+    flex-direction: column;
+  }
+  .photo-row img {
+    height: auto;
+  }
+}

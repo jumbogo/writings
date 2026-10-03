@@ -6,8 +6,9 @@ tags: [
 ]
 description: 由于出差，在加州旅行过年
 author: jumbo chow
-image: "ca_cover.JPG"
 categories: ["travel"]
+aliases: ["/p/南加州之行/"]
+feature: "ca_cover.JPG"
 ---
 
 今年2月初公司在洛杉矶offsite，就是集中开会+团建。由于周末就是中国年，家里决定干脆就去加州旅行过年。我周二到周五需要工作，于是安排了周五下午开车到棕榈泉市，周六去附近的约书亚树国家公园，周日去棕榈泉附近的峡谷等地。
