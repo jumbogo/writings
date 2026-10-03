@@ -64,9 +64,10 @@ summaryLength = 0
   [params.author]
     name = "Jumbo Chow"
     image = "img/avatar.png"
-    headline = "Software engineer · runner · travel notes"
+    headline = "Software engineer · entrepreneur · runner"
     links = [
       { github = "https://github.com/jumbogo" },
+      { linkedin = "https://www.linkedin.com/in/zhengbo-zhou-40a49b4" },
     ]
 
 [markup]
