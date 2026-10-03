@@ -5,12 +5,18 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    
+  build:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout source
       uses: actions/checkout@v4
@@ -19,36 +25,34 @@ jobs:
         fetch-depth: 0
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
+      uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: 'latest'
+        # Pinned: an unpinned "latest" broke the build when Hugo removed config keys
+        hugo-version: '0.165.0'
         extended: true
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-
-    - name: Install dependencies
-      run: |
-        cd jumbo-space
-        npm ci || echo "No package.json found, skipping npm install"
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
 
     - name: Build Hugo site
-      run: |
-        cd jumbo-space
-        hugo --minify --gc --cleanDestinationDir
+      working-directory: jumbo-space
+      run: hugo --minify --gc --baseURL "${{ steps.pages.outputs.base_url }}/"
       env:
         HUGO_ENVIRONMENT: production
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: jumboalex/jumboalex.github.io
-        publish_dir: ./jumbo-space/public
-        publish_branch: main
-        cname: jumboalex.github.io
-        commit_message: ${{ github.event.head_commit.message }}
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
+        path: ./jumbo-space/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

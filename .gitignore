@@ -1,0 +1,4 @@
+# Hugo build output
+jumbo-space/public/
+jumbo-space/resources/_gen/
+.hugo_build.lock
