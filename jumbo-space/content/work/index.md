@@ -53,6 +53,9 @@ channel partners and investors.
 A ZZ Labs app for iOS and Android that scans food labels and flags the
 ingredients you want to avoid. It runs entirely on-device, with no account
 needed.
+
+[App Store](https://apps.apple.com/us/app/insightlens-label-scanner/id6795424374)
+· [Google Play](https://play.google.com/store/apps/details?id=com.jumbo81.insightlens)
 {{< /role >}}
 
 {{< role initials="L" company="Lucation" dates="2015 – 2016" >}}
