@@ -12,6 +12,13 @@ full history is on [LinkedIn](https://www.linkedin.com/in/zhengbo-zhou-40a49b4).
 
 ## Experience
 
+**ZZ Labs LLC**, Founder\
+Sammamish, WA · 2026 – present
+
+My one-person lab for testing new ideas and building prototype products. First
+release: [InsightLens](https://insightlens.dev/), a food-label scanner for iOS
+and Android.
+
 **Auger**, Platform Senior Software Engineer\
 Bellevue, WA · Dec 2025 – present
 
@@ -47,8 +54,8 @@ behind the launches of Persistent Disk, Cloud SQL and Compute Engine.
 
 **[InsightLens](https://insightlens.dev/)** · 2026 – present
 
-An iOS and Android app from ZZ Labs, my company, that scans food labels and
-flags the ingredients you want to avoid. It runs entirely on-device, with no
+A ZZ Labs app for iOS and Android that scans food labels and flags the
+ingredients you want to avoid. It runs entirely on-device, with no
 account needed.
 
 **Lucation** · 2015 – 2016
