@@ -40,7 +40,7 @@ release: [InsightLens](https://insightlens.dev/), a food-label scanner for iOS
 and Android.
 {{< /role >}}
 
-{{< role initials="B" company="Bomi AI Technology (Hangzhou)" title="Co-founder & Director" place="Hangzhou, China" dates="2019 – 2022" >}}
+{{< role logo="logos/bomi.png" pad=true company="Bomi AI Technology (Hangzhou)" title="Co-founder & Director" place="Hangzhou, China" dates="2019 – 2022" >}}
 Co-founded a startup building AI-driven fault detection and diagnostics for
 building HVAC systems. Led engineering end to end, from edge data collection to
 the cloud platform and customer dashboards, and worked directly with customers,
@@ -49,17 +49,17 @@ channel partners and investors.
 
 ## Projects
 
-**[InsightLens](https://insightlens.dev/)** · 2026 – present
-
+{{< role logo="logos/insightlens.png" company="InsightLens" url="https://insightlens.dev/" dates="2026 – present" >}}
 A ZZ Labs app for iOS and Android that scans food labels and flags the
-ingredients you want to avoid. It runs entirely on-device, with no
-account needed.
+ingredients you want to avoid. It runs entirely on-device, with no account
+needed.
+{{< /role >}}
 
-**Lucation** · 2015 – 2016
-
+{{< role initials="L" company="Lucation" dates="2015 – 2016" >}}
 A short-code service for map addresses and coordinates. Defined the product and
 architecture, built the backend service and web app, and worked with mobile
 developers to ship the Android and iOS apps.
+{{< /role >}}
 
 ## Patents
 

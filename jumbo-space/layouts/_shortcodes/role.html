@@ -1,8 +1,14 @@
-{{/* One experience entry with a company logo beside it, used on /work/.
+{{/* One experience or project entry with a logo beside it, used on /work/.
      logo: image in the page bundle; without one, `initials` fill a plain tile.
-     pad: true for logos that run to the image edge and need breathing room. */}}
+     pad: true for logos that run to the image edge and need breathing room.
+     url: links the name. title and place are optional (projects omit them). */}}
 {{- $logo := "" }}
 {{- with .Get "logo" }}{{ $logo = $.Page.Resources.Get . }}{{ end }}
+{{- $name := .Get "company" }}
+{{- with .Get "url" }}{{ $name = printf "<a href=%q>%s</a>" . $name }}{{ end }}
+{{- $meta := slice }}
+{{- with .Get "place" }}{{ $meta = $meta | append . }}{{ end }}
+{{- with .Get "dates" }}{{ $meta = $meta | append . }}{{ end }}
 <div class="role">
   {{- if $logo }}
   <img class="role-logo{{ if .Get "pad" }} role-logo-pad{{ end }}" src="{{ $logo.RelPermalink }}" alt="{{ .Get "company" }} logo" width="48" height="48" loading="lazy">
@@ -10,8 +16,10 @@
   <span class="role-logo role-initials" aria-hidden="true">{{ .Get "initials" }}</span>
   {{- end }}
   <div class="role-body">
-    <p class="role-head"><strong>{{ .Get "company" }}</strong>, {{ .Get "title" }}</p>
-    <p class="role-meta">{{ .Get "place" }} · {{ .Get "dates" }}</p>
+    <p class="role-head"><strong>{{ $name | safeHTML }}</strong>{{ with .Get "title" }}, {{ . }}{{ end }}</p>
+    {{- with $meta }}
+    <p class="role-meta">{{ delimit . " · " }}</p>
+    {{- end }}
     {{ .Inner | $.Page.RenderString (dict "display" "block") }}
   </div>
 </div>
