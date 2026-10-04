@@ -51,8 +51,8 @@ channel partners and investors.
 
 {{< role logo="logos/insightlens.png" company="InsightLens" url="https://insightlens.dev/" dates="2026 – present" >}}
 A ZZ Labs app for iOS and Android that scans food labels and flags the
-ingredients you want to avoid. It runs entirely on-device, with no account
-needed.
+ingredients you want to avoid. No account needed, and your list of
+ingredients to avoid never leaves your phone.
 
 [App Store](https://apps.apple.com/us/app/insightlens-label-scanner/id6795424374)
 · [Google Play](https://play.google.com/store/apps/details?id=com.jumbo81.insightlens)
