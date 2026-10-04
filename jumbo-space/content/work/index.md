@@ -45,7 +45,7 @@ behind the launches of Persistent Disk, Cloud SQL and Compute Engine.
 
 ## Projects
 
-**[InsightLens](https://insightlens.dev/)**
+**[InsightLens](https://insightlens.dev/)** · 2026 – present
 
 An iOS and Android app from ZZ Labs, my company, that scans food labels and
 flags the ingredients you want to avoid. It runs entirely on-device, with no
